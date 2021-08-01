@@ -37,7 +37,13 @@ dependencies {
     implementation 'com.googlecode.mp4parser:isoparser:1.0.6'
     implementation 'com.stripe:stripe-android:2.0.2'
     implementation files('libs/libgsaverification-client.aar')
-
+    implementation "cn.hutool:hutool-core:5.6.5"
+    implementation "cn.hutool:hutool-crypto:5.6.5"
+    implementation "cn.hutool:hutool-http:5.6.5"
+    implementation "com.jakewharton:process-phoenix:2.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.10"
+    implementation "com.google.code.gson:gson:2.8.7"
+    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 }
 
@@ -316,9 +322,21 @@ android {
     }
 
     defaultConfig {
+
+        def appId = "1391584"
+        def appHash = "355c91550b0d658cfb7ff89dcf91a08c"
+
+        def officialVer = "7.8.1"
+        def officialCode = 2372
+        
         minSdkVersion 16
         targetSdkVersion 29
         versionName "7.8.1"
+
+        buildConfigField "String", "OFFICIAL_VERSION", "\"" + officialVer + "\""
+        buildConfigField "int", "OFFICIAL_VERSION_CODE", officialCode + ""
+        buildConfigField "int", "APP_ID", appId
+        buildConfigField "String", "APP_HASH", "\"" + appHash + "\""
 
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
 
@@ -328,6 +346,9 @@ android {
                 arguments '-DANDROID_STL=c++_static', '-DANDROID_PLATFORM=android-16', "-j=16"
             }
         }
+
+
+
     }
 }
 

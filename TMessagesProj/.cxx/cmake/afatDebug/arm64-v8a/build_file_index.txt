@@ -1,0 +1,2 @@
+D:\TelegramX\TMessagesProj\jni\CMakeLists.txt
+D:\TelegramX\TMessagesProj\jni\voip\CMakeLists.txt

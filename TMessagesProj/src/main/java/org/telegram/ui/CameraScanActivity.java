@@ -13,7 +13,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.ImageFormat;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
@@ -25,7 +24,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
-import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -33,11 +31,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.vision.Frame;
-import com.google.android.gms.vision.barcode.Barcode;
-import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
+import com.google.zxing.NotFoundException;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
@@ -45,7 +41,6 @@ import com.google.zxing.common.GlobalHistogramBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 
 import org.telegram.messenger.AndroidUtilities;
-import org.telegram.messenger.ApplicationLoader;
 import org.telegram.messenger.FileLog;
 import org.telegram.messenger.ImageLoader;
 import org.telegram.messenger.LocaleController;
@@ -66,7 +61,6 @@ import org.telegram.ui.Components.AnimationProperties;
 import org.telegram.ui.Components.CubicBezierInterpolator;
 import org.telegram.ui.Components.LayoutHelper;
 
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 @TargetApi(18)
@@ -89,9 +83,10 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
     private boolean recognized;
 
     private QRCodeReader qrReader;
-    private BarcodeDetector visionQrReader;
+    //private BarcodeDetector visionQrReader;
 
     private boolean needGalleryButton;
+    private boolean any;
 
     private int currentType;
 
@@ -163,6 +158,62 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
         return actionBarLayout;
     }
 
+    public static ActionBarLayout[] showAsSheet(BaseFragment parentFragment, CameraScanActivityDelegate delegate) {
+        if (parentFragment == null || parentFragment.getParentActivity() == null) {
+            return null;
+        }
+        ActionBarLayout[] actionBarLayout = new ActionBarLayout[]{new ActionBarLayout(parentFragment.getParentActivity())};
+        BottomSheet bottomSheet = new BottomSheet(parentFragment.getParentActivity(), false) {
+            {
+                actionBarLayout[0].init(new ArrayList<>());
+                CameraScanActivity fragment = new CameraScanActivity(TYPE_QR) {
+                    @Override
+                    public void finishFragment() {
+                        dismiss();
+                    }
+
+                    @Override
+                    public void removeSelfFromStack() {
+                        dismiss();
+                    }
+                };
+                fragment.needGalleryButton = true;
+                fragment.any = true;
+                actionBarLayout[0].addFragmentToStack(fragment);
+                actionBarLayout[0].showLastFragment();
+                actionBarLayout[0].setPadding(backgroundPaddingLeft, 0, backgroundPaddingLeft, 0);
+                fragment.setDelegate(delegate);
+                containerView = actionBarLayout[0];
+                setApplyBottomPadding(false);
+                setApplyBottomPadding(false);
+                setOnDismissListener(dialog -> fragment.onFragmentDestroy());
+            }
+
+            @Override
+            protected boolean canDismissWithSwipe() {
+                return false;
+            }
+
+            @Override
+            public void onBackPressed() {
+                if (actionBarLayout[0] == null || actionBarLayout[0].fragmentsStack.size() <= 1) {
+                    super.onBackPressed();
+                } else {
+                    actionBarLayout[0].onBackPressed();
+                }
+            }
+
+            @Override
+            public void dismiss() {
+                super.dismiss();
+                actionBarLayout[0] = null;
+            }
+        };
+
+        bottomSheet.show();
+        return actionBarLayout;
+    }
+
     public CameraScanActivity(int type) {
         super();
         CameraController.getInstance().initCamera(() -> {
@@ -173,7 +224,7 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
         currentType = type;
         if (currentType == TYPE_QR) {
             qrReader = new QRCodeReader();
-            visionQrReader = new BarcodeDetector.Builder(ApplicationLoader.applicationContext).setBarcodeFormats(Barcode.QR_CODE).build();
+            //visionQrReader = new BarcodeDetector.Builder(ApplicationLoader.applicationContext).setBarcodeFormats(Barcode.QR_CODE).build();
         }
     }
 
@@ -184,9 +235,9 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
         if (getParentActivity() != null) {
             getParentActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         }
-        if (visionQrReader != null) {
+        /*if (visionQrReader != null) {
             visionQrReader.release();
-        }
+        }*/
     }
 
     @Override
@@ -596,7 +647,7 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
     private String tryReadQr(byte[] data, Size size, int x, int y, int side, Bitmap bitmap) {
         try {
             String text;
-            if (visionQrReader.isOperational()) {
+            /*if (visionQrReader.isOperational()) {
                 Frame frame;
                 if (bitmap != null) {
                     frame = new Frame.Builder().setBitmap(bitmap).build();
@@ -609,27 +660,35 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
                 } else {
                     text = null;
                 }
+            } else {*/
+            LuminanceSource source;
+            if (bitmap != null) {
+                int[] intArray = new int[bitmap.getWidth() * bitmap.getHeight()];
+                bitmap.getPixels(intArray, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+                source = new RGBLuminanceSource(bitmap.getWidth(), bitmap.getHeight(), intArray);
             } else {
-                LuminanceSource source;
-                if (bitmap != null) {
-                    int[] intArray = new int[bitmap.getWidth() * bitmap.getHeight()];
-                    bitmap.getPixels(intArray, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
-                    source = new RGBLuminanceSource(bitmap.getWidth(), bitmap.getHeight(), intArray);
-                } else {
-                    source = new PlanarYUVLuminanceSource(data, size.getWidth(), size.getHeight(), x, y, side, side, false);
-                }
-
-                Result result = qrReader.decode(new BinaryBitmap(new GlobalHistogramBinarizer(source)));
-                if (result == null) {
-                    onNoQrFound();
-                    return null;
-                }
-                text = result.getText();
+                source = new PlanarYUVLuminanceSource(data, size.getWidth(), size.getHeight(), x, y, side, side, false);
             }
+            Result result = null;
+            try {
+                result = qrReader.decode(new BinaryBitmap(new GlobalHistogramBinarizer(source)));
+            } catch (NotFoundException e) {
+                try {
+                    result = qrReader.decode(new BinaryBitmap(new GlobalHistogramBinarizer(source.invert())));
+                } catch (NotFoundException ignore) {
+                }
+            }
+            if (result == null) {
+                onNoQrFound();
+                return null;
+            }
+            text = result.getText();
+            //}
             if (TextUtils.isEmpty(text)) {
                 onNoQrFound();
                 return null;
             }
+            if (any) return text;
             if (needGalleryButton) {
                 if (!text.startsWith("ton://transfer/")) {
                     //onNoWalletFound(bitmap != null);
@@ -637,11 +696,6 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
                 }
                 Uri uri = Uri.parse(text);
                 String path = uri.getPath().replace("/", "");
-            } else {
-                if (!text.startsWith("tg://login?token=")) {
-                    onNoQrFound();
-                    return null;
-                }
             }
             return text;
         } catch (Throwable ignore) {

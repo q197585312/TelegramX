@@ -1,0 +1,202 @@
+{
+  "buildFiles": [
+    "D:\\TelegramX\\TMessagesProj\\jni\\CMakeLists.txt",
+    "D:\\TelegramX\\TMessagesProj\\jni\\voip\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+      "-C",
+      "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+    "-C",
+    "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "tgnet-Debug-arm64-v8a": {
+      "artifactName": "tgnet",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "tgnet"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libtgnet.a",
+      "runtimeFiles": []
+    },
+    "webp-Debug-arm64-v8a": {
+      "artifactName": "webp",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "webp"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libwebp.a",
+      "runtimeFiles": []
+    },
+    "rnnoise-Debug-arm64-v8a": {
+      "artifactName": "rnnoise",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "rnnoise"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\librnnoise.a",
+      "runtimeFiles": []
+    },
+    "lz4-Debug-arm64-v8a": {
+      "artifactName": "lz4",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "lz4"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\liblz4.a",
+      "runtimeFiles": []
+    },
+    "tgcalls-Debug-arm64-v8a": {
+      "artifactName": "tgcalls",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "tgcalls"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libtgcalls.a",
+      "runtimeFiles": []
+    },
+    "rlottie-Debug-arm64-v8a": {
+      "artifactName": "rlottie",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "rlottie"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\librlottie.a",
+      "runtimeFiles": []
+    },
+    "cpufeatures-Debug-arm64-v8a": {
+      "artifactName": "cpufeatures",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "cpufeatures"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libcpufeatures.a",
+      "runtimeFiles": []
+    },
+    "tgvoip-Debug-arm64-v8a": {
+      "artifactName": "tgvoip",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "tgvoip"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libtgvoip.a",
+      "runtimeFiles": []
+    },
+    "tmessages.39-Debug-arm64-v8a": {
+      "artifactName": "tmessages.39",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "tmessages.39"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\build\\intermediates\\cmake\\afatDebug\\obj\\arm64-v8a\\libtmessages.39.so",
+      "runtimeFiles": []
+    },
+    "sqlite-Debug-arm64-v8a": {
+      "artifactName": "sqlite",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "sqlite"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libsqlite.a",
+      "runtimeFiles": []
+    },
+    "voipandroid-Debug-arm64-v8a": {
+      "artifactName": "voipandroid",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "voipandroid"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libvoipandroid.a",
+      "runtimeFiles": []
+    },
+    "flac-Debug-arm64-v8a": {
+      "artifactName": "flac",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "flac"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libflac.a",
+      "runtimeFiles": []
+    },
+    "openh264-Debug-arm64-v8a": {
+      "artifactName": "openh264",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "openh264"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libopenh264.a",
+      "runtimeFiles": []
+    },
+    "mozjpeg-Debug-arm64-v8a": {
+      "artifactName": "mozjpeg",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "mozjpeg"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libmozjpeg.a",
+      "runtimeFiles": []
+    },
+    "tgcalls_tp-Debug-arm64-v8a": {
+      "artifactName": "tgcalls_tp",
+      "buildCommandComponents": [
+        "D:\\androidsdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a",
+        "tgcalls_tp"
+      ],
+      "abi": "arm64-v8a",
+      "output": "D:\\TelegramX\\TMessagesProj\\.cxx\\cmake\\afatDebug\\arm64-v8a\\libtgcalls_tp.a",
+      "runtimeFiles": []
+    }
+  }
+}

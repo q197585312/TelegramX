@@ -13,6 +13,8 @@ import android.content.pm.PackageManager;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
 import org.telegram.messenger.LocaleController;
@@ -20,19 +22,17 @@ import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.R;
 import org.telegram.messenger.UserConfig;
 import org.telegram.ui.ActionBar.Theme;
-import org.telegram.ui.Cells.DrawerActionCell;
 import org.telegram.ui.Cells.DividerCell;
+import org.telegram.ui.Cells.DrawerActionCell;
 import org.telegram.ui.Cells.DrawerAddCell;
+import org.telegram.ui.Cells.DrawerProfileCell;
 import org.telegram.ui.Cells.DrawerUserCell;
 import org.telegram.ui.Cells.EmptyCell;
-import org.telegram.ui.Cells.DrawerProfileCell;
 import org.telegram.ui.Components.RecyclerListView;
 import org.telegram.ui.Components.SideMenultItemAnimator;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
-import androidx.recyclerview.widget.RecyclerView;
 
 public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
 
@@ -247,6 +247,7 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
         int inviteIcon;
         int helpIcon;
         int peopleNearbyIcon;
+        int proxyIcon=R.drawable.menu_settings_filled;
         if (eventType == 0) {
             newGroupIcon = R.drawable.menu_groups_ny;
             //newSecretIcon = R.drawable.menu_secret_ny;
@@ -291,6 +292,7 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
             inviteIcon = R.drawable.menu_invite;
             helpIcon = R.drawable.menu_help;
             peopleNearbyIcon = R.drawable.menu_nearby;
+
         }
         items.add(new Item(2, LocaleController.getString("NewGroup", R.string.NewGroup), newGroupIcon));
         //items.add(new Item(3, LocaleController.getString("NewSecretChat", R.string.NewSecretChat), newSecretIcon));
@@ -301,6 +303,7 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
             items.add(new Item(12, LocaleController.getString("PeopleNearby", R.string.PeopleNearby), peopleNearbyIcon));
         }
         items.add(new Item(11, LocaleController.getString("SavedMessages", R.string.SavedMessages), savedIcon));
+        items.add(new Item(14, LocaleController.getString("proxy", R.string.Proxy), proxyIcon));
         items.add(new Item(8, LocaleController.getString("Settings", R.string.Settings), settingsIcon));
         items.add(null); // divider
         items.add(new Item(7, LocaleController.getString("InviteFriends", R.string.InviteFriends), inviteIcon));

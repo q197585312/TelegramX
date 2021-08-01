@@ -1,0 +1,1 @@
+D:\TelegramX\TMessagesProj\build\intermediates\cmake\afatDebug\obj\arm64-v8a

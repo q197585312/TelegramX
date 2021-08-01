@@ -1,0 +1,17 @@
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/webp.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/flac.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/mozjpeg.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/tgnet.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/rlottie.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/sqlite.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/lz4.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/tgvoip.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/openh264.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/tgcalls.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/rnnoise.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/tgcalls_tp.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/voipandroid.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/tmessages.39.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/cpufeatures.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/edit_cache.dir
+D:/TelegramX/TMessagesProj/.cxx/cmake/afatDebug/x86/CMakeFiles/rebuild_cache.dir
